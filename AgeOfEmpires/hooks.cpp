@@ -13,7 +13,7 @@ int __fastcall hkGetPopulationLimit(void* thisptr, void*)
 bool Hooks::Init()
 {
 	PopulationLimitHook = new PLH::X86Detour();
-	PopulationLimitHook->SetupHook((BYTE*)0x4363D0, (BYTE*)hkGetPopulationLimit);
+	PopulationLimitHook->SetupHook((BYTE*)Memory::SigScan("A1 ? ? ? ? 8B D1 8B 88 ? ? ? ? 83 EC 08 85 C9 0F 84 ? ? ? ?"), (BYTE*)hkGetPopulationLimit);
 	if (!PopulationLimitHook->Hook())
 		return false;
 

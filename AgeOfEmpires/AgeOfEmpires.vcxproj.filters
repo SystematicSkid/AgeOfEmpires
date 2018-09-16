@@ -21,21 +21,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="memory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interfaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="hooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ageofempires.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="interfaces.h">
@@ -55,6 +52,9 @@
     </ClInclude>
     <ClInclude Include="sdk\vector.h">
       <Filter>Header Files\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

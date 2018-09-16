@@ -41,6 +41,44 @@ public:
 	}
 };
 
+#ifdef ASIANGAME
+class PlayerInfo
+{
+public:
+	int32_t m_iIndex; //0x0000
+	wchar_t* m_szName; //0x0004
+	char pad_0008[72]; //0x0008
+	int32_t m_iAge; //0x0050
+	char pad_0054[88]; //0x0054
+	wchar_t* m_szHomeCity; //0x00AC
+	char pad_00B0[48]; //0x00B0
+	class ObjectTable* pObjects; //0x00E0
+	char pad_00E4[332]; //0x00E4
+	int* pResources; //0x0230
+
+	float GetResource(int type)
+	{
+		if (this->pResources)
+		{
+			int val = this->pResources[type] ^ ((DWORD*)XOR_KEY)[type];
+		}
+	}
+
+	// We apply the same logic as above with the xor key to set the resource :)
+
+	void SetResource(int type, float f)
+	{
+		if (this->pResources)
+		{
+			this->pResources[type] = *(int*)&f ^ ((DWORD*)XOR_KEY)[type];
+		}
+	}
+
+}; //Size: 0x02E8
+#endif // ASIANGAME
+
+
+#ifdef BASEGAME
 class PlayerInfo
 {
 public:
@@ -52,16 +90,6 @@ public:
 	class ObjectTable* pObjects; //0x00C0
 	char pad_00C4[332]; //0x00C4
 	int* pResources;
-/*
-	char pad_0008[56]; //0x0008
-	int32_t m_iAge; //0x0040
-	char pad_0044[72]; //0x0044
-	wchar_t* m_szHomeCity; //0x008C
-	char pad_0090[48]; //0x0090
-	class ObjectTable* pObjects; //0x00C0
-	char pad_00C4[332]; //0x00C4
-	int* pResources; //0x0210*/
-
 
 	float GetResource(int type)
 	{
@@ -82,3 +110,4 @@ public:
 	}
 
 }; //Size: 0x0440
+#endif // BASEGAME

@@ -50,8 +50,8 @@ public:
 class World
 {
 public:
-	char pad[0x50];
-	ObjectTable* pAllObjects;
+	char pad[84];
+	ObjectTable* pAllObjects; /* Contains every single item, I think you can just set your object table to this, but there is some sort of age check...*/
 };
 
 class GameManager
